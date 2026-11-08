@@ -87,3 +87,14 @@ variable "webapp_sku" {
   type        = string
   default     = "B1"
 }
+
+
+variable "ekstra_innregler" {
+  description = "Innkommende TCP-regler i tillegg til HTTP, sendt videre til subnett-modulen. Tom for de fleste tjenestene."
+  type = map(object({
+    prioritet = number
+    port      = string
+    kilde     = string
+  }))
+  default = {}
+}
