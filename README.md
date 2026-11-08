@@ -157,3 +157,20 @@ faglærer.
 | `No available instances to satisfy this request` | App Service har midlertidig for lite kapasitet i regionen. Kjør på nytt litt senere |
 | Web app-en svarer ikke, eller tidsavbrudd i nettleseren | Første forespørsel etter en utrulling starter appen, og det kan ta 2–3 minutter. Last siden på nytt |
 | `config/dev/<x>.tfvars passer ikke i noe lag` | Fila peker på en stack som ikke finnes, eller som ikke står i `LAG` i `kjor.sh` |
+
+
+
+
+
+
+
+## Struktur etter migreringen
+
+Repoet er delt vertikalt: én delt nettverksstack og én stack-definisjon for tjenestene, med én instans per tjeneste per krava i oblig2 sin beskrivelse.
+
+| Stack | Instanser (per miljø) | State |
+|---|---|---|
+| `stacks/shared-network` | 1 | `oblig2/<miljø>/shared-network.tfstate` |
+| `stacks/service` | ordre (vm), meny (webapp), sok (webapp) | `oblig2/<miljø>/service-<tjeneste>.tfstate` |
+
+En ny tjeneste legges til med `config/<miljø>/service-<tjeneste>.tfvars`, uten kodeendring.
