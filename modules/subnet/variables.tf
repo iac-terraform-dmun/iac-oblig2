@@ -39,3 +39,14 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+
+variable "ekstra_innregler" {
+  description = "Innkommende TCP-regler i tillegg til HTTP. Nøkkelen blir navnet på regelen. Prioriteten må være unik i NSG-en (100 er allow-http)."
+  type = map(object({
+    prioritet = number
+    port      = string
+    kilde     = string
+  }))
+  default = {}
+}

@@ -33,6 +33,7 @@ module "subnet" {
   delegate_web        = var.runtime == "webapp"
   allow_http_from     = var.allow_http_from
   tags                = local.tags
+  ekstra_innregler    = var.ekstra_innregler
 }
 
 module "storage" {
@@ -84,3 +85,4 @@ module "webapp" {
   sku                 = var.webapp_sku
   tags                = local.tags
 }
+
