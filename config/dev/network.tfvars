@@ -1,4 +1,2 @@
-tjenester = {
-  ordre = { prefix = "10.10.0.0/24", runtime = "vm" }
-  meny  = { prefix = "10.10.1.0/24", runtime = "webapp" }
-}
+# Tom med vilje. stacks/network slipper alt den eide (removed.tf), og fila må
+# finnes for at kjor.sh skal kjøre den. Slettes i oppryddings-PR-en.

@@ -14,3 +14,12 @@ removed {
     destroy = false
   }
 }
+
+
+removed {
+  from = module.subnet
+
+  lifecycle {
+    destroy = false
+  }
+}
